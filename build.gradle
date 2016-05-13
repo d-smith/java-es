@@ -1,15 +1,5 @@
 apply plugin: 'java'
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile 'info.cukes:cucumber-java:1.2.4'
-    testCompile 'info.cukes:cucumber-junit:1.2.4'
-    testCompile 'junit:junit:4.11'
-}
-
 configurations {
     cucumberRuntime {
         extendsFrom testRuntime
@@ -22,7 +12,19 @@ task cucumber() {
         javaexec {
             main = "cucumber.api.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
+            args = ['--plugin', 'pretty', '--glue', 'org.dsmith.es', 'src/test/resources']
         }
     }
+}
+
+dependencies {
+    compile 'info.cukes:cucumber-java:1.2.4'
+    testCompile 'info.cukes:cucumber-java:1.2.4'
+    testCompile 'info.cukes:cucumber-junit:1.2.4'
+
+    testCompile 'junit:junit:4.11'
+}
+
+repositories {
+    mavenCentral()
 }
