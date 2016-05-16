@@ -2,14 +2,16 @@ package org.dsmith.es;
 
 import cucumber.api.java.en.*;
 import cucumber.api.PendingException;
-import org.dsmith.es.sample.User;
+import org.dsmith.es.sample.*;
 import org.junit.Assert;
+
+import static org.dsmith.es.sample.User.NewUser;
 
 public class BasicStepdefs {
     private User user;
     @Given("^an event sourced user$")
     public void an_event_sourced_aggregate() throws Throwable {
-        user = new User();
+        user = NewUser("first","last","email");
     }
 
     @When("^I create a new instance$")

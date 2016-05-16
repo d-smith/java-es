@@ -1,19 +1,17 @@
 package org.dsmith.es.sample;
 
 
-import org.dsmith.es.Aggregate;
 import org.dsmith.es.Event;
 
-public class User extends Aggregate {
+public class UserCreated extends Event {
     private String firstName;
     private String lastName;
     private String eMail;
 
-    private User(String first, String last, String email) {
-        super();
-        this.firstName = first;
-        this.lastName = last;
-        this.eMail = email;
+    public UserCreated(User user) {
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.eMail = user.geteMail();
     }
 
     public String getFirstName() {
@@ -38,18 +36,5 @@ public class User extends Aggregate {
 
     public void seteMail(String eMail) {
         this.eMail = eMail;
-    }
-
-    public static User NewUser(String first, String last, String email) {
-        User user = new User(first,last,email);
-
-        user.apply(new UserCreated(user));
-
-        return user;
-    }
-
-    @Override
-    public void route(Event e) {
-        
     }
 }
