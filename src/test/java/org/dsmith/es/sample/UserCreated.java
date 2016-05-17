@@ -4,14 +4,24 @@ package org.dsmith.es.sample;
 import org.dsmith.es.Event;
 
 public class UserCreated extends Event {
+    private String id;
     private String firstName;
     private String lastName;
     private String eMail;
 
-    public UserCreated(User user) {
-        this.firstName = user.getFirstName();
-        this.lastName = user.getLastName();
-        this.eMail = user.geteMail();
+    public UserCreated(String id, String first, String last, String email) {
+        this.id = id;
+        this.firstName = first;
+        this.lastName = last;
+        this.eMail = email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {

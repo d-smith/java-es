@@ -9,7 +9,7 @@ import static org.dsmith.es.sample.User.NewUser;
 
 public class BasicStepdefs {
     private User user;
-    @Given("^an event sourced user$")
+    @Given("^an event sourced aggregate$")
     public void an_event_sourced_aggregate() throws Throwable {
         user = NewUser("first","last","email");
     }
@@ -30,9 +30,10 @@ public class BasicStepdefs {
         throw new PendingException();
     }
 
-    @Then("^the uncommited event's source ID is the user ID$")
+    @Then("^the uncommited event's source ID is the aggregate ID$")
     public void the_uncommited_event_s_source_ID_is_the_aggregate_ID() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
 }

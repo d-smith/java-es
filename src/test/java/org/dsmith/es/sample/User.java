@@ -9,11 +9,8 @@ public class User extends Aggregate {
     private String lastName;
     private String eMail;
 
-    private User(String first, String last, String email) {
+    private User() {
         super();
-        this.firstName = first;
-        this.lastName = last;
-        this.eMail = email;
     }
 
     public String getFirstName() {
@@ -41,15 +38,23 @@ public class User extends Aggregate {
     }
 
     public static User NewUser(String first, String last, String email) {
-        User user = new User(first,last,email);
+        User user = new User();
 
-        user.apply(new UserCreated(user));
+        user.apply(new UserCreated(user.aggregateID, first,last,email));
 
         return user;
     }
 
     @Override
     public void route(Event e) {
-        
+        if(e instanceof UserCreated) {
+            handle((UserCreated)e);
+        }
+    }
+
+    private void handle(UserCreated userCreated) {
+        this.firstName = userCreated.getFirstName();
+        this.lastName = userCreated.getLastName();
+        this.eMail = userCreated.geteMail();
     }
 }
