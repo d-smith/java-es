@@ -26,4 +26,8 @@ public abstract class Aggregate {
         addEvent(e);
     }
 
+    public int uncommentEventCount() {
+        return events.size();
+    }
+
 }

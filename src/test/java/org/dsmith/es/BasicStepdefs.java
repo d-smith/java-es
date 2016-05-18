@@ -26,8 +26,7 @@ public class BasicStepdefs {
 
     @Then("^there's an uncommitted event$")
     public void there_s_an_uncommitted_event() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        Assert.assertEquals(1,user.uncommentEventCount());
     }
 
     @Then("^the uncommited event's source ID is the aggregate ID$")
