@@ -7,7 +7,7 @@ import java.util.UUID;
 public abstract class Aggregate {
     protected String aggregateID;
     protected int version;
-    protected List events;
+    protected List<Event> events;
 
     public Aggregate() {
         aggregateID = UUID.randomUUID().toString();

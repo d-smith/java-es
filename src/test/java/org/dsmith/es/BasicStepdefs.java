@@ -31,8 +31,9 @@ public class BasicStepdefs {
 
     @Then("^the uncommited event's source ID is the aggregate ID$")
     public void the_uncommited_event_s_source_ID_is_the_aggregate_ID() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        Event theEvent = user.events.get(0);
+        Assert.assertTrue(theEvent instanceof UserCreated);
+        Assert.assertEquals(user.aggregateID, ((UserCreated)theEvent).getId());
     }
 
 }
