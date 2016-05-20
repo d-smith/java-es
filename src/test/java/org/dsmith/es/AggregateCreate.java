@@ -7,7 +7,7 @@ import org.junit.Assert;
 
 import static org.dsmith.es.sample.User.NewUser;
 
-public class BasicStepdefs {
+public class AggregateCreate {
     private User user;
     @Given("^an event sourced aggregate$")
     public void an_event_sourced_aggregate() throws Throwable {
