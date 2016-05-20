@@ -2,6 +2,14 @@ package org.dsmith.es;
 
 
 public abstract class Event {
-    private String source;
-    private int version;
+    protected String source;
+    protected int version;
+
+    public String getSource() {
+        return source;
+    }
+
+    public int getVersion() {
+        return version;
+    }
 }

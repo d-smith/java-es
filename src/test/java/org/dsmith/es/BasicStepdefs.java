@@ -33,7 +33,7 @@ public class BasicStepdefs {
     public void the_uncommited_event_s_source_ID_is_the_aggregate_ID() throws Throwable {
         Event theEvent = user.events.get(0);
         Assert.assertTrue(theEvent instanceof UserCreated);
-        Assert.assertEquals(user.aggregateID, ((UserCreated)theEvent).getId());
+        Assert.assertEquals(user.aggregateID, theEvent.getSource());
     }
 
 }
