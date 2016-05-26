@@ -10,7 +10,6 @@ public abstract class Aggregate {
     protected List<Event> events;
 
     public Aggregate() {
-        aggregateID = UUID.randomUUID().toString();
         version = 0;
         events = new ArrayList<>();
     }
